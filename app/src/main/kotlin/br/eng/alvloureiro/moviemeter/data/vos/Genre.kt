@@ -1,6 +1,5 @@
-package com.alvloureiro.moviemeter.data.valueobjects
+package br.eng.alvloureiro.moviemeter.data.vos
 
-import br.eng.alvloureiro.moviemeter.data.vos.VO
 import com.google.gson.annotations.Expose
 
 
