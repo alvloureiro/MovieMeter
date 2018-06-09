@@ -1,7 +1,8 @@
-package br.eng.alvloureiro.moviemeter
+package br.eng.alvloureiro.moviemeter.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import br.eng.alvloureiro.moviemeter.R
 
 class MainActivity : AppCompatActivity() {
 
