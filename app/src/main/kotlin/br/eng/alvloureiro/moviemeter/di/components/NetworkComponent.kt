@@ -1,6 +1,6 @@
 package br.eng.alvloureiro.moviemeter.di.components
 
-import br.eng.alvloureiro.moviemeter.ui.MainActivity
+import br.eng.alvloureiro.moviemeter.ui.activity.MainActivity
 import br.eng.alvloureiro.moviemeter.data.models.TMDBModel
 import br.eng.alvloureiro.moviemeter.di.modules.NetworkModule
 import com.google.gson.Gson
