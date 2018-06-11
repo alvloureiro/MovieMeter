@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">MovieMeter</string>
     <string name="movie_title_text">%s</string>
-    <string name="movie_release_date_text">Premiere: %s</string>
+    <string name="movie_release_date_text">%s</string>
+    <string name="movie_vote_scored_text">%s</string>
     <string name="movie_sinopse_text">%s</string>
     <string name="label_ratingbar_text">Rating</string>
     <string name="label_button_refetch">Refetch API</string>
     <string name="label_sinopse_text">Sinopse</string>
     <string name="label_movie_genres_text">%s</string>
     <string name="label_toast_did_fetch_movies_fail_text">Fail to get upcoming movies</string>
+    <string name="movie_vote_max_total_text">%s</string>
+    <string name="movie_vote_total_count_text">%s</string>
 </resources>
