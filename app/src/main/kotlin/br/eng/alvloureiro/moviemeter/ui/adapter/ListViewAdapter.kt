@@ -27,9 +27,13 @@ class ListViewAdapter: RecyclerView.Adapter<ListViewAdapter.MViewHolder> {
         fun bind(item: Movie, listener: (Movie) -> Unit) = with(itemView) {
             moviePoster.loadPosterFromUrl(url = item.poster_path)
 
-            movieName.text = context?.getString(R.string.movie_title_text, item.title + "(${item.release_date?.toDisplayDate()})")
+            movieName.text = context?.getString(R.string.movie_title_text, item.title)
+
+            movieReleaseDate.text = context?.getString(R.string.movie_release_date_text, "(${item.release_date?.toDisplayDate()})")
 
             ratingBar.rating = item.vote_average?.convertVoteAverageToRating()!!
+
+            voteScore.text = context?.getString(R.string.movie_vote_scored_text, item.vote_average)
 
             val genres = item.genre_ids?.map { it.toString() }?.map {
                 context?.app?.preferences?.getString(it, "")

@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#bebebe"
+    android:background="@color/material_red_050"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="2dp" >
+    >
 
     <android.support.v7.widget.CardView
         android:id="@+id/moviecardItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="10dp">
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="2.5dp"
+        app:cardElevation="1dp">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -32,15 +33,37 @@
 
             <TextView
                 android:id="@+id/movieName"
-                android:layout_width="300dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:minWidth="300dp"
+                android:minWidth="150dp"
                 app:layout_constraintLeft_toRightOf="@id/moviePoster" />
+
+            <TextView
+                android:id="@+id/movieReleaseDate"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:minWidth="60dp"
+                app:layout_constraintLeft_toRightOf="@id/movieName"
+                app:layout_constraintBottom_toBottomOf="@id/movieName"
+                />
+
+            <TextView
+                android:id="@+id/voteScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/movieReleaseDate"
+                app:layout_constraintBottom_toBottomOf="@+id/movieName"/>
 
             <RatingBar
                 android:id="@+id/ratingBar"

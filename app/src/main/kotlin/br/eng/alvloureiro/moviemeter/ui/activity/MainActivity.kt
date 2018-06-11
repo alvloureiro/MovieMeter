@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import br.eng.alvloureiro.moviemeter.R
+import br.eng.alvloureiro.moviemeter.R.id.*
 import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
 import br.eng.alvloureiro.moviemeter.di.components.NetworkComponent
@@ -71,7 +72,8 @@ class MainActivity : AppCompatActivity() {
 
         mViewModel.topRatedMovies(success, fail)
 
-        toolbar.title = getString(R.string.app_name)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.app_name)
 
         withListView<RecyclerView> {
             layoutManager = mLayoutManager
