@@ -18,6 +18,8 @@ import br.eng.alvloureiro.moviemeter.R
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 
+val modelName: String
+    get() = "MODEL"
 
 val AppCompatActivity.app: Moviemeter get() = application as Moviemeter
 
@@ -72,11 +74,6 @@ fun AppCompatImageView.loadPosterFromUrl(url: String?) {
     }
 }
 
-fun AppCompatImageView.loadBackdropImageFromUrl(url: String) {
-    val backImgUrl = "${BuildConfig.BASE_IMG_URL}/w780$url"
-    Picasso.with(context).load(backImgUrl.toUri()).into(this)
-}
-
 fun String.toUri(): Uri {
     return Uri.parse(this)
 }
@@ -90,4 +87,8 @@ fun String.toDisplayDate(): String {
 
 fun Float.convertVoteAverageToRating(): Float {
     return (5 * this) / 10
+}
+
+inline fun<reified T> AppCompatActivity.getParam(): T {
+    return intent.extras.get(modelName) as T
 }
