@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import br.eng.alvloureiro.moviemeter.R
-import br.eng.alvloureiro.moviemeter.R.id.*
 import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
-import br.eng.alvloureiro.moviemeter.di.components.NetworkComponent
-import br.eng.alvloureiro.moviemeter.di.modules.NetworkModule
 import br.eng.alvloureiro.moviemeter.ext.*
 import br.eng.alvloureiro.moviemeter.ui.adapter.ListViewAdapter
 import br.eng.alvloureiro.moviemeter.ui.viewmodel.TMDBViewModel
@@ -26,10 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var mViewModel: TMDBViewModel
-
-    private val component: NetworkComponent by lazy {
-        app.component.plus(NetworkModule(this))
-    }
 
     private val mLayoutManager: LinearLayoutManager by lazy {
         LinearLayoutManager(this)
@@ -63,12 +56,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        app.component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         progressBar.show()
-
-        component.inject(this)
 
         mViewModel.topRatedMovies(success, fail)
 

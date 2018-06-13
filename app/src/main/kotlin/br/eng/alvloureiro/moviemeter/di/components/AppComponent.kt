@@ -1,16 +1,29 @@
 package br.eng.alvloureiro.moviemeter.di.components
 
 import br.eng.alvloureiro.moviemeter.Moviemeter
+import br.eng.alvloureiro.moviemeter.data.models.NetworkDataModel
 import br.eng.alvloureiro.moviemeter.di.modules.AppModule
 import br.eng.alvloureiro.moviemeter.di.modules.NetworkModule
+import br.eng.alvloureiro.moviemeter.di.scopes.PerApplication
+import br.eng.alvloureiro.moviemeter.ui.activity.MainActivity
+import com.google.gson.Gson
 import dagger.Component
-import javax.inject.Singleton
+import okhttp3.Cache
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
 
 
-@Singleton
-@Component(modules = [(AppModule::class)])
+@PerApplication
+@Component(modules = [(AppModule::class), (NetworkModule::class)])
 interface AppComponent {
     fun inject(app: Moviemeter)
-    fun plus(module: NetworkModule): NetworkComponent
+    fun inject(mainActivity: MainActivity)
+
+    fun retrofit(): Retrofit
+    fun okhttp(): OkHttpClient
+    fun gson(): Gson
+    fun cache(): Cache
+
+    fun movieDataModel(): NetworkDataModel
 }
 

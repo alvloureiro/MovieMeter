@@ -1,0 +1,7 @@
+package br.eng.alvloureiro.moviemeter.di.scopes
+
+import javax.inject.Scope
+
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class PerApplication
