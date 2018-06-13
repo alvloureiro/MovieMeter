@@ -1,7 +1,7 @@
 package br.eng.alvloureiro.moviemeter.ui.viewmodel
 
 import android.util.Log
-import br.eng.alvloureiro.moviemeter.data.models.TMDBModel
+import br.eng.alvloureiro.moviemeter.data.models.NetworkDataModel
 import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 
-class TMDBViewModel @Inject constructor(private val model: TMDBModel) {
+class TMDBViewModel @Inject constructor(private val model: NetworkDataModel) {
 
     companion object {
         const val TAG = "TMDBViewModel"
