@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface TMDBApi {
+interface Api {
     companion object {
         const val BASE_ENDPOINT = "/3"
         const val GET_GENRE_LIST = "/genre/movie/list"

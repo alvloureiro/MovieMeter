@@ -3,7 +3,7 @@ package br.eng.alvloureiro.moviemeter.di.modules
 import android.support.v7.app.AppCompatActivity
 import br.eng.alvloureiro.moviemeter.BuildConfig
 import br.eng.alvloureiro.moviemeter.BuildConfig.BASE_API_URL
-import br.eng.alvloureiro.moviemeter.api.TMDBApi
+import br.eng.alvloureiro.moviemeter.api.Api
 import br.eng.alvloureiro.moviemeter.ext.app
 import br.eng.alvloureiro.moviemeter.okhttp.HttpCacheInterceptor
 import br.eng.alvloureiro.moviemeter.okhttp.HttpOfflineCacheInterceptor
@@ -78,5 +78,5 @@ class NetworkModule(private val activity: AppCompatActivity) {
 
     @Singleton
     @Provides
-    fun providesMoviesDatabaseApi(retrofit: Retrofit) = retrofit.create(TMDBApi::class.java)
+    fun providesMoviesDatabaseApi(retrofit: Retrofit) = retrofit.create(Api::class.java)
 }
