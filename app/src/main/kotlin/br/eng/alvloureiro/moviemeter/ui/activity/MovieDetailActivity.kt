@@ -23,6 +23,7 @@ class MovieDetailActivity: AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         movieSinopse.movementMethod = ScrollingMovementMethod()
 
