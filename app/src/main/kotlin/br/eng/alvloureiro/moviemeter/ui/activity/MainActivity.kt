@@ -1,10 +1,12 @@
 package br.eng.alvloureiro.moviemeter.ui.activity
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.WindowManager
 import br.eng.alvloureiro.moviemeter.R
 import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
@@ -48,10 +50,9 @@ class MainActivity : AppCompatActivity() {
         movieTitle.text = getString(R.string.movie_title_text, it.message)
     }
 
-    private val fetchGenresSuccess: (List<Genre>) -> Unit = {
-        genres -> genres.forEach {
-            genre ->
-                app.preferences.edit().putString(genre.id?.toString(), genre.name).apply()
+    private val fetchGenresSuccess: (List<Genre>) -> Unit = { genres ->
+        genres.forEach { genre ->
+            app.preferences.edit().putString(genre.id?.toString(), genre.name).apply()
         }
     }
 
@@ -64,14 +65,10 @@ class MainActivity : AppCompatActivity() {
 
         mViewModel.topRatedMovies(success, fail)
 
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = getString(R.string.app_name)
-
         withListView<RecyclerView> {
             layoutManager = mLayoutManager
             adapter = mMovieAdapter
         }
-
 
         if (!app.preferences.contains(IS_GENRES_FETCHED)) {
             mViewModel.movieGenres(fetchGenresSuccess)
