@@ -7,21 +7,21 @@
     </style>
 
     <style name="AppTheme" parent="AppTheme.Base">
-        <item name="colorPrimary">@color/material_red_500</item>
-        <item name="colorPrimaryDark">@color/material_red_900</item>
-        <item name="colorAccent">@color/material_red_a700</item>
-        <item name="dialogTheme">@style/AppTheme.Dialog.Red</item>
-        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Red</item>
+        <item name="colorPrimary">@color/material_gray_600</item>
+        <item name="colorPrimaryDark">@color/material_gray_900</item>
+        <item name="colorAccent">@color/material_gray_800</item>
+        <item name="dialogTheme">@style/AppTheme.Dialog.Gray</item>
+        <item name="alertDialogTheme">@style/AppTheme.Dialog.Alert.Gray</item>
     </style>
 
     <!-- Default Dialog Theme -->
     <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
     </style>
 
-    <style name="AppTheme.Dialog.Red">
-        <item name="colorPrimary">@color/material_red_500</item>
-        <item name="colorPrimaryDark">@color/material_red_700</item>
-        <item name="colorAccent">@color/material_red_a700</item>
+    <style name="AppTheme.Dialog.Gray">
+        <item name="colorPrimary">@color/material_gray_500</item>
+        <item name="colorPrimaryDark">@color/material_gray_700</item>
+        <item name="colorAccent">@color/material_gray_800</item>
     </style>
 
     <!-- Default Alert Dialog Theme -->
@@ -29,10 +29,10 @@
     </style>
 
     <!-- red Alert Dialog Theme -->
-    <style name="AppTheme.Dialog.Alert.Red">
-        <item name="colorPrimary">@color/material_red_500</item>
-        <item name="colorPrimaryDark">@color/material_red_700</item>
-        <item name="colorAccent">@color/material_red_a700</item>
+    <style name="AppTheme.Dialog.Alert.Gray">
+        <item name="colorPrimary">@color/material_gray_500</item>
+        <item name="colorPrimaryDark">@color/material_gray_700</item>
+        <item name="colorAccent">@color/material_gray_800</item>
     </style>
 
     <style name="AppTheme.RatingBar.Small" parent="Widget.AppCompat.RatingBar.Small" />

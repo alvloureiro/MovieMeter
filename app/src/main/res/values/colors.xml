@@ -17,5 +17,17 @@
     <color name="material_red_a100">#FF8A80</color>
     <color name="material_red_a200">#FF5252</color>
     <color name="material_red_a400">#FF1744</color>
-    <color name="material_red_a700">#D50000</color>
+    <color name="material_red_a700">#80D50000</color>
+
+    <color name="material_gray_050">#FAFAFA</color>
+    <color name="material_gray_100">#F5F5F5</color>
+    <color name="material_gray_200">#EEEEEE</color>
+    <color name="material_gray_300">#E0E0E0</color>
+    <color name="material_gray_400">#BDBDBD</color>
+    <color name="material_gray_500">#9E9E9E</color>
+    <color name="material_gray_600">#757575</color>
+    <color name="material_gray_a600">#29000000</color>
+    <color name="material_gray_700">#616161</color>
+    <color name="material_gray_800">#424242</color>
+    <color name="material_gray_900">#212121</color>
 </resources>
