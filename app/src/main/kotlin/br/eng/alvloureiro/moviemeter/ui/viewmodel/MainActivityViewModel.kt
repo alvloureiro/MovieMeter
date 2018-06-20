@@ -12,16 +12,34 @@ class MainActivityViewModel @Inject constructor(private val model: NetworkDataMo
         const val TAG = "MainActivityViewModel"
     }
 
-    fun runGetTopRatedMovies(success: (ArrayList<Movie>) -> Unit, fail: (Throwable) -> Unit) {
-        Log.d(TAG, "runGetTopRatedMovies")
+    fun runGetMoviesData(success: (ArrayList<Movie>) -> Unit, fail: (Throwable) -> Unit) {
+        Log.d(TAG, "runGetMoviesData")
         executeOnUITryCatch(
                 {
+                    val genres = asyncAwait {
+                        model.genres()?.genres
+                    }
                     val movies = asyncAwait {
                         model.topRated()?.results!!
                     }
+
+                    movies.map {
+                        movie -> movie.genre_ids?.map {
+                            id -> genres
+                                ?.filter { genre -> genre.id == id }
+                                ?.map {
+                                    genre ->
+                                        Log.d(TAG, "add ${genre.name}")
+                                        movie.genres?.add(genre)
+                            }
+                        }
+                    }
+
                     success(movies)
-                },{
+                },
+                {
                     fail(it)
-                })
+                }
+        )
     }
 }

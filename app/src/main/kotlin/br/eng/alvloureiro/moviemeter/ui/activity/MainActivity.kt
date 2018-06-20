@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import br.eng.alvloureiro.moviemeter.R
-import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
 import br.eng.alvloureiro.moviemeter.ext.*
 import br.eng.alvloureiro.moviemeter.ui.adapter.ListViewAdapter
@@ -17,7 +16,6 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     companion object {
         const val TAG = "MainActivity"
-        const val IS_GENRES_FETCHED = "IS_GENRES_FETCHED"
         const val MOVIE_MODEL = "MODEL"
     }
 
@@ -48,12 +46,6 @@ class MainActivity : AppCompatActivity() {
         movieTitle.text = getString(R.string.movie_title_text, it.message)
     }
 
-    private val fetchGenresSuccess: (List<Genre>) -> Unit = { genres ->
-        genres.forEach { genre ->
-            app.preferences.edit().putString(genre.id?.toString(), genre.name).apply()
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         app.component.inject(this)
         super.onCreate(savedInstanceState)
@@ -61,25 +53,17 @@ class MainActivity : AppCompatActivity() {
 
         progressBar.show()
 
-        mViewModel.runGetTopRatedMovies(success, fail)
+        mViewModel.runGetMoviesData(success, fail)
 
         withListView<RecyclerView> {
             layoutManager = mLayoutManager
             adapter = mMovieAdapter
         }
 
-        if (!app.preferences.contains(IS_GENRES_FETCHED)) {
-            //mViewModel.movieGenres(fetchGenresSuccess)
-        }
-
         btnRefetch?.setOnClickListener {
             progressBar.show()
 
-            if (!app.preferences.contains(IS_GENRES_FETCHED)) {
-                //mViewModel.movieGenres(fetchGenresSuccess)
-            }
-
-            mViewModel.runGetTopRatedMovies(success, fail)
+            mViewModel.runGetMoviesData(success, fail)
 
             it.hide()
         }
@@ -90,5 +74,4 @@ class MainActivity : AppCompatActivity() {
         mViewModel.cancelAllCoroutines()
         super.onDestroy()
     }
-
 }

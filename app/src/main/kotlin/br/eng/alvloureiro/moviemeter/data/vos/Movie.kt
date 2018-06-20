@@ -44,6 +44,8 @@ data class Movie(
         var overview: String? = null,
 
         @Expose
-        var release_date: String? = null
+        var release_date: String? = null,
+
+        var genres: MutableList<Genre>? = mutableListOf()
 
 ): VO

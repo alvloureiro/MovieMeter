@@ -15,9 +15,9 @@ import android.view.animation.AnimationUtils
 import br.eng.alvloureiro.moviemeter.BuildConfig
 import br.eng.alvloureiro.moviemeter.Moviemeter
 import br.eng.alvloureiro.moviemeter.R
-import br.eng.alvloureiro.moviemeter.ui.viewmodel.ViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.experimental.*
+import kotlinx.coroutines.experimental.CancellationException
+import kotlinx.coroutines.experimental.CoroutineScope
 import java.text.SimpleDateFormat
 
 val modelName: String

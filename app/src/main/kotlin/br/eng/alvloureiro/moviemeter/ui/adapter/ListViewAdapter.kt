@@ -5,7 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import br.eng.alvloureiro.moviemeter.R
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
-import br.eng.alvloureiro.moviemeter.ext.*
+import br.eng.alvloureiro.moviemeter.ext.convertVoteAverageToRating
+import br.eng.alvloureiro.moviemeter.ext.inflate
+import br.eng.alvloureiro.moviemeter.ext.loadPosterFromUrl
+import br.eng.alvloureiro.moviemeter.ext.toDisplayDate
 import kotlinx.android.synthetic.main.carditem.view.*
 
 
@@ -35,14 +38,10 @@ class ListViewAdapter: RecyclerView.Adapter<ListViewAdapter.MViewHolder> {
 
             voteScore.text = context?.getString(R.string.movie_vote_scored_text, item.vote_average)
 
-            val genres = item.genre_ids?.map { it.toString() }?.map {
-                context?.app?.preferences?.getString(it, "")
-            }
-
-            if (genres?.isNotEmpty() as Boolean) {
+            if (item.genres?.isNotEmpty() as Boolean) {
                 movieGenres.text = context?.getString(
                         R.string.label_movie_genres_text,
-                        genres.reduce{ displayGenres, genre -> displayGenres?.plus(genre)?.plus("\n")}
+                        item.genres?.map { genre -> " ${genre.name} " }
                 )
             } else {
                 movieGenres.text = context.getString(R.string.label_movie_genres_text, "")
