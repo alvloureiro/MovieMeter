@@ -1,18 +1,16 @@
 package br.eng.alvloureiro.moviemeter.ui.activity
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.WindowManager
 import br.eng.alvloureiro.moviemeter.R
 import br.eng.alvloureiro.moviemeter.data.vos.Genre
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
 import br.eng.alvloureiro.moviemeter.ext.*
 import br.eng.alvloureiro.moviemeter.ui.adapter.ListViewAdapter
-import br.eng.alvloureiro.moviemeter.ui.viewmodel.TMDBViewModel
+import br.eng.alvloureiro.moviemeter.ui.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var mViewModel: TMDBViewModel
+    lateinit var mViewModel: MainActivityViewModel
 
     private val mLayoutManager: LinearLayoutManager by lazy {
         LinearLayoutManager(this)
