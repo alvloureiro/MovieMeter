@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         progressBar.show()
 
-        mViewModel.topRatedMovies(success, fail)
+        mViewModel.runGetTopRatedMovies(success, fail)
 
         withListView<RecyclerView> {
             layoutManager = mLayoutManager
@@ -71,24 +71,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (!app.preferences.contains(IS_GENRES_FETCHED)) {
-            mViewModel.movieGenres(fetchGenresSuccess)
+            //mViewModel.movieGenres(fetchGenresSuccess)
         }
 
         btnRefetch?.setOnClickListener {
             progressBar.show()
 
             if (!app.preferences.contains(IS_GENRES_FETCHED)) {
-                mViewModel.movieGenres(fetchGenresSuccess)
+                //mViewModel.movieGenres(fetchGenresSuccess)
             }
 
-            mViewModel.topRatedMovies(success, fail)
+            mViewModel.runGetTopRatedMovies(success, fail)
 
             it.hide()
         }
     }
 
     override fun onDestroy() {
-        mViewModel.clearDisposables()
+        mViewModel.cancelAllAsync()
+        mViewModel.cancelAllCoroutines()
         super.onDestroy()
     }
 

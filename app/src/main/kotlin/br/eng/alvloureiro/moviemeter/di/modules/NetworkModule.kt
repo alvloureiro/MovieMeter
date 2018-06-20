@@ -65,7 +65,6 @@ class NetworkModule(private val app: Moviemeter) {
     internal fun providesRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(BASE_API_URL)
                 .client(okHttpClient)
                 .build()

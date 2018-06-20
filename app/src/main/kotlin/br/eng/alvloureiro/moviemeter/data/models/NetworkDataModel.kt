@@ -8,9 +8,9 @@ import javax.inject.Singleton
 @PerApplication
 class NetworkDataModel @Inject constructor(private val mApi: Api){
 
-    fun genres() = mApi.genres()
+    fun genres() = mApi.genres().execute().body()
 
-    fun searchMovie(movieTitle: String, page: Int) = mApi.searchMovie(movieTitle, page)
+    //fun searchMovie(movieTitle: String, page: Int) = mApi.searchMovie(movieTitle, page)
 
-    fun topRated() = mApi.topRated()
+    fun topRated() = mApi.topRated().execute().body()
 }
