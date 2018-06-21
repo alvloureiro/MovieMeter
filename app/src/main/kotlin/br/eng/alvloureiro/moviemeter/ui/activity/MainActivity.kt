@@ -1,10 +1,12 @@
 package br.eng.alvloureiro.moviemeter.ui.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import br.eng.alvloureiro.moviemeter.R
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
 import br.eng.alvloureiro.moviemeter.ext.*
@@ -50,6 +52,13 @@ class MainActivity : AppCompatActivity() {
         app.component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            .plus(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+        window.statusBarColor = Color.TRANSPARENT
+
+        setActionBar(mainToolbar)
+        actionBar.title = getString(R.string.app_name)
 
         progressBar.show()
 
