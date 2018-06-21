@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private val fail: (Throwable) -> Unit = {
         progressBar.hide()
         btnRefetch.show()
-        movieTitle.text = getString(R.string.movie_title_text, it.message)
+        errorMessage.text = getString(R.string.movie_title_text, it.message)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
