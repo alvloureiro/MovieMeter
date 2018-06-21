@@ -6,7 +6,10 @@ import android.text.method.ScrollingMovementMethod
 import android.view.MenuItem
 import br.eng.alvloureiro.moviemeter.R
 import br.eng.alvloureiro.moviemeter.data.vos.Movie
-import br.eng.alvloureiro.moviemeter.ext.*
+import br.eng.alvloureiro.moviemeter.ext.convertVoteAverageToRating
+import br.eng.alvloureiro.moviemeter.ext.getParam
+import br.eng.alvloureiro.moviemeter.ext.loadPosterFromUrl
+import br.eng.alvloureiro.moviemeter.ext.toDisplayDate
 import kotlinx.android.synthetic.main.activity_detail.*
 
 
